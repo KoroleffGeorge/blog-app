@@ -28,6 +28,20 @@ const store = createStore({
           console.error('Error creating article:', error);
         });
     },
+    async updateArticle({ commit }, article) {
+      return axios
+      .put(`${API_URL}/article/${article.id}`, article)
+      .then((response) => {
+        const index = state.articles.findIndex(
+          (a) => a.id === article.id,
+        );
+        state.articles.splice(index, 1, response.data);
+        return response.data;
+      })
+      .catch((error) => {
+        console.error('Error updating article:', error);
+      });
+    },
   },
 });
 
