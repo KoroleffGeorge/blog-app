@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Article  = require('../models/Article');
 
+// READ
 router.get('/', async (req, res) => {
   try {
     const articles = await Article.findAll();

@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const sequelize = require('./config/db');
 const articleRoutes = require('./routes/article');
 const articlesRoute = require('./routes/articles');
-const commentRoutes = require('./routes/comments');
-const analyticsRoutes = require('./routes/analytics');
+const commentRoutes = require('./routes/comment');
+const analyticsRoutes = require('./routes/analytic');
 
 const app = express();
 app.use(bodyParser.json());

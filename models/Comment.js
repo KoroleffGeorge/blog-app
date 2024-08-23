@@ -19,6 +19,7 @@ const Comment = sequelize.define('comment', {
       model: Article,
       key: 'id',
     },
+    onDelete: 'CASCADE',
   },
   createdAt: {
     type: DataTypes.DATE,
@@ -31,5 +32,8 @@ const Comment = sequelize.define('comment', {
     defaultValue: DataTypes.NOW,
   },
 });
+
+Comment.belongsTo(Article, { foreignKey: 'articleId' });
+Article.hasMany(Comment, { foreignKey: 'articleId' });
 
 module.exports = Comment

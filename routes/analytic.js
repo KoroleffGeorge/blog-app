@@ -4,6 +4,7 @@ const { Op } = require('sequelize');
 const Comment = require('../models/Comment');
 const Article = require('../models/Article');
 
+// READ
 router.get('/comments', async (req, res) => {
   const { dateFrom, dateTo } = req.query;
 
@@ -30,7 +31,7 @@ router.get('/comments', async (req, res) => {
       if (!acc[articleId]) {
         acc[articleId] = {
           articleId,
-          articleTitle: comment.Article.title,
+          articleTitle: comment.article ? comment.article.title : 'Unknown Title',
           comments: [],
         };
       }
