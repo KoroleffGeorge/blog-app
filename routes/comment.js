@@ -40,7 +40,7 @@ router.get('/:articleId/comments', async (req, res) => {
 });
 
 // UPDATE
-router.patch('/:articleId/comment/:commentId', async (req, res) => {
+router.put('/:articleId/comment/:commentId', async (req, res) => {
   try {
     const [updated] = await Comment.update(req.body, {
       where: { id: req.params.commentId, articleId: req.params.articleId },
