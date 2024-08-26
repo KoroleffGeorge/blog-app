@@ -40,6 +40,22 @@ const store = createStore({
   },
   actions: {
 
+  async fetchAllComments({ commit }, { dateFrom, dateTo }) {
+    return await axios
+      .get(`${API_URL}/analytic/comments/`, {
+        params: {
+          dateFrom,
+          dateTo,
+        },
+      })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        console.error('Error fetching comments:', error);
+      });
+  },
+
   async fetchArticle({ commit }, articleId) {
         return await axios
           .get(`${API_URL}/article/${articleId}`)

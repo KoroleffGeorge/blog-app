@@ -4,6 +4,7 @@ import ArticleForm from './components/ArticleForm.vue';
 import ArticleView from './components/ArticleView.vue';
 import CommentList from './components/CommentList.vue';
 import CommentForm from './components/CommentForm.vue';
+import CommentFilter from './components/CommentFilter.vue';
 import HomePage from './App.vue';
 
 const routes = [
@@ -45,6 +46,12 @@ const routes = [
     name: 'CommentForm',
     component: CommentForm,
     props: true,
+  },
+
+  {
+    path: '/comments/filter',
+    name: 'CommentFilter',
+    component: CommentFilter,
   },
 ];
 

@@ -15,11 +15,8 @@
           <td>{{ article.title }}</td>
           <td>{{ article.content }}</td>
           <td>
-            <v-btn icon small @click="editArticle(article)">
-              <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-            <v-btn icon small @click="handleDeleteArticle(article)">
-              <v-icon>mdi-delete</v-icon>
+            <v-btn icon small @click="viewArticle(article)">
+              <v-icon>mdi-eye</v-icon>
             </v-btn>
           </td>
         </tr>
@@ -45,9 +42,9 @@ export default {
   },
   methods: {
     ...mapActions(['fetchArticles', 'deleteArticle']),
-    editArticle(article) {
+    viewArticle(article) {
       this.$router.push({
-        name: 'ArticleForm',
+        name: 'ArticleView',
         params: {
           id: article.id,
         },
