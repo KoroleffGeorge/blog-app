@@ -16,15 +16,20 @@
         </v-list-item-action>
       </v-list-item>
     </v-list>
+    <v-btn @click="addComment">Add Comment</v-btn>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
 import { useRouter } from 'vue-router';
+import CommentForm from './CommentForm.vue';
 
 export default {
   name: 'CommentList',
+  components: {
+      CommentForm,
+  },
   data() {
     return {
       editingComment: null,
@@ -59,6 +64,15 @@ export default {
     },
     handleDeleteComment(comment) {
       this.deleteComment({ articleId: this.$route.params.id, commentId: comment.id });
+    },
+    addComment() {
+      this.$router.push({
+        name: 'CommentForm',
+        params: {
+          articleId: this.$route.params.id,
+          commentId: null,
+        },
+      });
     },
   },
 };

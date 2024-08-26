@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ArticleList from './components/ArticleList.vue';
 import ArticleForm from './components/ArticleForm.vue';
+import ArticleView from './components/ArticleView.vue';
 import CommentList from './components/CommentList.vue';
 import CommentForm from './components/CommentForm.vue';
 import HomePage from './App.vue';
@@ -22,6 +23,13 @@ const routes = [
     path: '/article/:id?',
     name: 'ArticleForm',
     component: ArticleForm,
+    props: true,
+  },
+
+  {
+    path: '/article/:id/view',
+    name: 'ArticleView',
+    component: ArticleView,
     props: true,
   },
 

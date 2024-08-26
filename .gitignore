@@ -37,6 +37,3 @@ coverage/
 *.tmp
 *.temp
 *.bak
-
-# Файлы конфигурации
-*.config.js

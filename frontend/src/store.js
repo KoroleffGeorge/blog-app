@@ -7,11 +7,15 @@ const store = createStore({
   state: {
     articles: [],
     comments: [],
+    article: null,
   },
   mutations: {
     setArticles(state, articles) {
       state.articles = articles;
     },
+    setArticle(state, article) {
+          state.article = article;
+        },
     setComments(state, comments) {
       state.comments = comments;
     },
@@ -35,6 +39,17 @@ const store = createStore({
     }
   },
   actions: {
+
+  async fetchArticle({ commit }, articleId) {
+        return await axios
+          .get(`${API_URL}/article/${articleId}`)
+          .then((response) => {
+            commit('setArticle', response.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching article:', error);
+          });
+      },
 
     async fetchArticles({ commit }) {
       return await axios
