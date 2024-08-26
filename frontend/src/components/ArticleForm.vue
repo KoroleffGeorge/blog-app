@@ -9,12 +9,13 @@
 <script>
   import axios from 'axios';
   import { defineComponent, ref, onMounted } from 'vue';
-  import { useRoute } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
 
   export default defineComponent({
     name: 'ArticleForm',
     setup(props) {
       const route = useRoute();
+      const router = useRouter();
       const title = ref('');
       const content = ref('');
       const isEditing = ref(false);
@@ -51,6 +52,7 @@
           }
           title.value = '';
           content.value = '';
+          router.push('/articles');
         } catch (error) {
           console.error('Error saving article:', error);
         }
