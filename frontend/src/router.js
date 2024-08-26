@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import ArticleList from './components/ArticleList.vue';
 import ArticleForm from './components/ArticleForm.vue';
 import CommentList from './components/CommentList.vue';
 import CommentForm from './components/CommentForm.vue';
@@ -9,6 +10,12 @@ const routes = [
     path: '/',
     name: 'HomePage',
     component: HomePage,
+  },
+
+  {
+    path: '/articles',
+    name: 'ArticleList',
+    component: ArticleList,
   },
 
   {

@@ -54,7 +54,6 @@ export default {
         },
         query: {
           text: comment.text,
-          author: comment.author,
         },
       });
     },
